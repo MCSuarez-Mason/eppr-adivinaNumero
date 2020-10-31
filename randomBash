@@ -1,0 +1,18 @@
+#!/bin/bash
+# bash adivina un numero aleatorio del 1-9 y lo compara con el numero que pense
+#
+
+
+
+function main (){
+ echo " piensa un numero de el 1-9"
+ read input 
+ # bash generate random number between 0 and 999
+NUMBER=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes 1)
+echo " el numero que yo calcule es:"
+if [ "$NUMBER" == "$input" ]; then
+echo "felicidades adivinaste el numero que pense"
+fi
+echo $NUMBER 
+}
+main
